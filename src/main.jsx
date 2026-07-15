@@ -1,9 +1,11 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
+import HelloComponent from './HelloComponent.jsx'
+import ArrowComponent from './ArrowComponent.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <HelloComponent/>
+    <ArrowComponent/>
   </StrictMode>,
 )
