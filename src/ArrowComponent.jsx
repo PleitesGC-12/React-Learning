@@ -10,12 +10,14 @@ const dateType = new Date(); // shows an error in the console because we can't p
 // by the way we can render objects using JSON.stringify
 const ArrowComponent = () => {
     return (
-        <div>
+        // There's another way to enclose the content to be rendered of the component instead of using a <div>
+        // This way is called fragment
+        <>
             <h1>Showing the results</h1>
             {/* We call variables inside curly brackets */}
             <h3>{arrayYes}</h3>
             <h3>{JSON.stringify(objectType)}</h3>
-        </div>
+        </>
     )
 }
 export default ArrowComponent;
