@@ -1,20 +1,25 @@
 import React from 'react'
+import {useState} from 'react'
 
 
-// Practicing events
+// Practicing useState
 const CounterApp = ({value}) => {
     
-    function handleClick() {
-        value += 1
-        console.log(value)
-    }
+    const [counter, setCounter] = useState(value)
 
+    // function within the component
+    const handleClick = () => {
+        
+        // to modify the counter we use setCounter
+        setCounter(counter + 1)
+    } 
+        
     return (
         <div>
             <h1>Counter: </h1>
             
             {/* Calling the prop */}
-            <p>{value}</p>
+            <p>{counter}</p>
 
             <button onClick={handleClick}>
                 I'm a button
