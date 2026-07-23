@@ -6,6 +6,7 @@ const Item = ({name, viewed}) => {
     )
 }
 
+
 // practicing map
 const ListApp = () => {
     
@@ -23,6 +24,10 @@ const ListApp = () => {
 
     const [array, setArray] = useState(sectionList)
 
+    const addTask = () => {
+        setArray([...array, {name: "new", viewed: false} ])
+    }
+
     return (
         <div>
             <h1>List of studied topics:</h1>
@@ -30,6 +35,8 @@ const ListApp = () => {
                 {/* In this part we render every item for the list */}
                 {array.map(item => <Item key={item.name} name={item.name} viewed={item.viewed}></Item>)}
             </ol>
+
+            <button onClick={addTask}>Add task</button>
         </div>
     )
 
