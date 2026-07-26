@@ -12,14 +12,8 @@ export const AddTask = ({addTask}) => {
 
     // to prevent the reloading of the page
     const whenSubmit = (event) => {
-       
-        const submit = {
-            name: inputValue,
-            viewed: false
-        }
-
         event.preventDefault()
-        addTask(tasks => [...tasks, submit])
+        addTask(inputValue)
     }
 
     return (
