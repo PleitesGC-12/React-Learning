@@ -1,21 +1,25 @@
 import { useState } from "react"
 
-export const AddTask = () => {
+export const AddTask = ({addTask}) => {
     
     const [inputValue, setInputValue] = useState("")
 
     // if we change the value in the input, the event is sent
     // to the function onInputChange and then is set as a new value
     const onInputChange = (event) => {
-        
         setInputValue(event.target.value)
     }
 
     // to prevent the reloading of the page
     const whenSubmit = (event) => {
+       
+        const submit = {
+            name: inputValue,
+            viewed: false
+        }
+
         event.preventDefault()
-        // console.log(event)
-        console.log(inputValue)
+        addTask(tasks => [...tasks, submit])
     }
 
     return (
