@@ -1,5 +1,7 @@
 import { useState } from "react"
 
+// addTask is a function passed as a prop that allows the father to listen the 
+// input from the user, in other words, the input is sent to the father as a string
 export const AddTask = ({addTask}) => {
     
     const [inputValue, setInputValue] = useState("")
@@ -13,14 +15,8 @@ export const AddTask = ({addTask}) => {
 
     // to prevent the reloading of the page
     const whenSubmit = (event) => {
-        
-        const submit = {
-            name: inputValue,
-            viewed: false
-        }
-
         event.preventDefault()
-        addTask(tasks => [...tasks, submit])
+        addTask(inputValue)
     }
 
     return (
