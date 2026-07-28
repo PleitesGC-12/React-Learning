@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export const AddTask = () => {
+export const AddTask = ({addTask}) => {
     
     const [inputValue, setInputValue] = useState("")
 
@@ -13,9 +13,14 @@ export const AddTask = () => {
 
     // to prevent the reloading of the page
     const whenSubmit = (event) => {
+        
+        const submit = {
+            name: inputValue,
+            viewed: false
+        }
+
         event.preventDefault()
-        // console.log(event)
-        console.log(inputValue)
+        addTask(tasks => [...tasks, submit])
     }
 
     return (

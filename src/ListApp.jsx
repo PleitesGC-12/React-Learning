@@ -30,7 +30,7 @@ const ListApp = () => {
 
             <h1>List of studied topics</h1>
             
-            <AddTask/>
+            <AddTask addTask={setArray}/>
             
             <ol>
                 {array.map( (item) => <Items key={item.name} name={item.name} viewed={item.viewed}></Items>)}
