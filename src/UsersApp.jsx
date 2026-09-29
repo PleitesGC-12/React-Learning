@@ -1,34 +1,22 @@
 import {useState, useEffect} from "react"
+import UserList from "./components/UserList"
 
 const UsersApp = () => {
 
-    const [users, setUsers] = useState([])
+    const [endpoint, setEndpoint] = useState("users")
     
-    const fetchUsers = async () => {
-            
-        try {
-            const response = await fetch("https://jsonplaceholder.typicode.com/users")
-            const data = await response.json()
-            setUsers(data)
-
-        } catch (error) {
-            console.error(error)
-        }
+    const handleFetch = () => {
+        setEndpoint("comments")
     }
-
-    useEffect(() => {
-        
-        fetchUsers()
-
-    }, [])
     
     return (
+        
         <div>
             <h1>Users List</h1>
-            <ul>
-                {users.map( (user) => <li key={user.id}>{user.name}</li> )}
-            </ul>
+            <UserList endPoint={endpoint}></UserList>
+            <button onClick={handleFetch}>Calling the API</button>
         </div>
+
     )
 }
 
